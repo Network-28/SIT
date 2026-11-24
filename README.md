@@ -1,5 +1,8 @@
 # Simple Issue Tracker
 
+> **Moved:** this project now lives at [github.com/Network-28](https://github.com/Network-28) and its image is `ghcr.io/network-28/sit`. The old `ghcr.io/thedinz/sit` image no longer gets updates. If you run it, change your container's image (on Unraid: Edit the container, then Repository) to `ghcr.io/network-28/sit:latest` and apply. Your settings and data stay as they are.
+
+
 A simple self-hosted issue-and-resolution log for church production teams. It is intentionally not a helpdesk or ticketing system: volunteers can quickly record a production issue, leave the resolution blank, and update the entry after the fix is known.
 
 ## Features
