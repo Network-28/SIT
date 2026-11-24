@@ -27,7 +27,7 @@ Create a `docker-compose.yml` file:
 ```yaml
 services:
   simple-issue-tracker:
-    image: ghcr.io/thedinz/sit:latest
+    image: ghcr.io/network-28/sit:latest
     container_name: simple-issue-tracker
     restart: unless-stopped
     ports:
@@ -55,9 +55,9 @@ Open [http://localhost:8080](http://localhost:8080).
 Image tags:
 
 ```bash
-docker pull ghcr.io/thedinz/sit:latest
-docker pull ghcr.io/thedinz/sit:main
-docker pull ghcr.io/thedinz/sit:dev
+docker pull ghcr.io/network-28/sit:latest
+docker pull ghcr.io/network-28/sit:main
+docker pull ghcr.io/network-28/sit:dev
 ```
 
 Default password:
@@ -92,7 +92,7 @@ Use this `docker-compose.yml` as-is, or adjust the host port and storage paths f
 ```yaml
 services:
   simple-issue-tracker:
-    image: ghcr.io/thedinz/sit:latest
+    image: ghcr.io/network-28/sit:latest
     container_name: simple-issue-tracker
     restart: unless-stopped
     ports:
