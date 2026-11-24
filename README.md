@@ -1,5 +1,8 @@
 # Simple Issue Tracker
 
+> **Moved:** this project now lives at [github.com/Network-28](https://github.com/Network-28) and its image is `ghcr.io/network-28/sit`. The old `ghcr.io/thedinz/sit` image no longer gets updates. If you run it, change your container's image (on Unraid: Edit the container, then Repository) to `ghcr.io/network-28/sit:latest` and apply. Your settings and data stay as they are.
+
+
 A simple self-hosted issue-and-resolution log for church production teams. It is intentionally not a helpdesk or ticketing system: volunteers can quickly record a production issue, leave the resolution blank, and update the entry after the fix is known.
 
 ## Features
@@ -7,10 +10,11 @@ A simple self-hosted issue-and-resolution log for church production teams. It is
 - Single shared password, no user accounts
 - Dark theme by default, with a light option
 - Search, department filter, sorting, page-size controls, and pagination, plus a button for each department with its issue count
-- Submitter name, multi-department issue tagging, and pending/resolved status
+- Issue title, submitter name, multi-department issue tagging, and pending/resolved status
 - WYSIWYG issue and resolution editors with bold, italic, underline, lists, and links; typing "- " or "1. " starts a list, and text pasted from Word or Google Docs keeps its basic formatting
 - Screenshot/file attachments for images and PDFs; paste a screenshot straight into the editor to attach it
 - Edit conflict detection, and issues can be deleted from the edit page
+- How-tos: short or long step-by-step guides for the team, tagged by department, searchable, and printable. Each numbered step has its own text and its own ordered screenshots with optional captions; paste a screenshot into a step to add it there. Guides can be flagged as needing an update
 - Library for standing team documents (stage plots, input lists, manuals) that are not tied to an issue, with in-browser viewing of Word, Excel, PDF, image, and text files
 - Settings for title, logo, departments, theme, and shared password
 - Full zip backup export/import from Settings
@@ -26,7 +30,7 @@ Create a `docker-compose.yml` file:
 ```yaml
 services:
   simple-issue-tracker:
-    image: ghcr.io/thedinz/sit:latest
+    image: ghcr.io/network-28/sit:latest
     container_name: simple-issue-tracker
     restart: unless-stopped
     ports:
@@ -54,9 +58,9 @@ Open [http://localhost:8080](http://localhost:8080).
 Image tags:
 
 ```bash
-docker pull ghcr.io/thedinz/sit:latest
-docker pull ghcr.io/thedinz/sit:main
-docker pull ghcr.io/thedinz/sit:dev
+docker pull ghcr.io/network-28/sit:latest
+docker pull ghcr.io/network-28/sit:main
+docker pull ghcr.io/network-28/sit:dev
 ```
 
 Default password:
@@ -82,7 +86,7 @@ Docker Compose stores app data in local folders:
 
 The app container uses `/data/db`, `/data/uploads`, `/data/logo`, and `/data/backups` internally.
 
-Settings includes a full zip backup tool. The backup contains a SQLite snapshot, app settings, departments, issues, uploaded attachments, Library files, and logo files. Keep backup files private because they include the stored shared-password hash. Backups never include this server's session secret, so a leaked backup cannot be used to forge a login.
+Settings includes a full zip backup tool. The backup contains a SQLite snapshot, app settings, departments, issues, how-tos, uploaded attachments and how-to screenshots, Library files, and logo files. Keep backup files private because they include the stored shared-password hash. Backups never include this server's session secret, so a leaked backup cannot be used to forge a login.
 
 ## Docker Compose Example
 
@@ -91,7 +95,7 @@ Use this `docker-compose.yml` as-is, or adjust the host port and storage paths f
 ```yaml
 services:
   simple-issue-tracker:
-    image: ghcr.io/thedinz/sit:latest
+    image: ghcr.io/network-28/sit:latest
     container_name: simple-issue-tracker
     restart: unless-stopped
     ports:

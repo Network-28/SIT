@@ -13,9 +13,6 @@ permissions:
   contents: read
   packages: write
 
-env:
-  IMAGE_NAME: ghcr.io/thedinz/sit
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -67,7 +64,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.IMAGE_NAME }}
+          images: ghcr.io/network-28/sit
           tags: |
             type=ref,event=branch
             type=semver,pattern={{version}}
